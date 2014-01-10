@@ -31,4 +31,13 @@ class Chainable
 		return result
 
 
-module.exports = exports = Chainable
+class OptionAChainable extends Chainable
+	option_b: new Chainable (option_a: true, option_b: true), 'option_b'
+
+
+class RawChainable extends Chainable
+	option_a: new OptionAChainable option_a: true, 'option_a'
+	option_b: new Chainable option_b: true, 'option_b'
+
+
+module.exports = exports = RawChainable
